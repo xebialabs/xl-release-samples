@@ -1,5 +1,7 @@
 This sample is intended to show how to develop custom export hooks for completed releases. It has been tested with Elastic Search 1.5.2 with standard settings.
 
+Requirements: XL Release 4.7.0+.
+
 There are 2 ways to load this export hook into XL Release:
 
 ## As a jar
