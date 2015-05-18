@@ -1,0 +1,56 @@
+/**********************
+ *
+ *  This build file contains script used by Xebialabs to distribute the example packages and code.
+ *  It is not part of the examples and you are not required to use or understand it.
+ *
+ */
+
+allprojects { p ->
+  group = "com.xebialabs.xlrelease.samples"
+  version = "1.0.0-SNAPSHOT"
+}
+
+subprojects.each { p ->
+  p.apply plugin: 'java'
+  p.apply plugin: 'maven'
+
+  p.uploadArchives {
+    repositories {
+      mavenDeployer {
+        repository(url: "${project.nexusBaseUrl}/repositories/releases") {
+          authentication(userName: "${project.nexusUserName}", password: "${project.nexusPassword}")
+        }
+
+        snapshotRepository(url: "${project.nexusBaseUrl}/repositories/snapshots") {
+          authentication(userName: "${project.nexusUserName}", password: "${project.nexusPassword}")
+        }
+      }
+    }
+  }
+
+  p.tasks.jar {
+    exclude "**/*.pyc"
+  }
+}
+
+allprojects {
+  repositories {
+
+    if (!rootProject.hasProperty('offline')) {
+      ["releases", "alphas", "thirdparty", "hidden-thirdparty"].each { r ->
+        maven {
+          credentials {
+            username nexusUserName
+            password nexusPassword
+          }
+          url "${nexusBaseUrl}/repositories/${r}"
+        }
+      }
+      maven {
+        url "${nexusBaseUrl}/groups/public"
+      }
+    }
+    // Last search local.
+    mavenLocal()
+  }
+}

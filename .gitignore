@@ -1,0 +1,52 @@
+*/src/main/web/*/libs
+
+*$py.class
+
+# use glob syntax.
+syntax: glob
+.gradle/
+
+# Gradle environment specific properties
+gradle.properties
+
+# Build output
+build/
+out/
+target/
+bin/
+test-output/
+
+# Eclipse
+.metadata/
+.settings/
+.classpath
+.project
+.pydevproject
+.scala_dependencies
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+s101plugin.state
+
+# If you have these in your workspace you need to clean up!
+*.hdb*
+build-number.txt
+atlassian-ide-plugin.xml
+
+# Mac
+.DS_Store
+
+# SBT
+.history
+integration/riatest/riatest-results.txt
+integration/data/.cache
+*.rtw
+
+*.swp
+
+# IntelliJ python compiler
+*.pyc
