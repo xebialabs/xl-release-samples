@@ -2,9 +2,9 @@
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <type type="acme.ElasticSearchExportHook" extends="xlrelease.ExportHook">
-    <property name="url" default="http://localhost:9200" category="input" label="Elastic search server URL"/>
-    <property name="typeName" default="releases" category="input" label="Elastic search type name"/>
-    <property name="indexName" default="releases_index" category="input" label="Elastic search index name"/>
+    <property name="url" default="http://localhost:9200" label="Elastic search server URL"/>
+    <property name="typeName" default="releases" label="Elastic search type name"/>
+    <property name="indexName" default="releases_index" label="Elastic search index name"/>
   </type>
 
 </synthetic>
