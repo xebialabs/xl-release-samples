@@ -11,6 +11,7 @@ def publish_to_elastic_search(uri, payload):
             logger.debug('The release has been pushed into ES')
         else:
             logger.error('Could not push release into ES', e)
+            logger.debug(payload)
             raise e
 
 
@@ -21,7 +22,7 @@ logger.info("Starting export of the release %s v2" % release.id)
 
 publish_to_elastic_search(
     # `exportHook` object provides access to properties defined at `acme.ElasticSearchExportHook` synthetic type.
-    uri = '%s/%s/%s' % (exportHook.url, exportHook.typeName, exportHook.indexName),
+    uri = '%s/%s/%s' % (exportHook.url, exportHook.indexName, exportHook.typeName),
     # `releaseJson` contains a string with serialized release.
     payload = releaseJson
 )
