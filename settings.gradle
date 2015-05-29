@@ -1,1 +1,1 @@
-include "elastic-search-export-hook"
+include "elastic-search-export-hook", "mysql-jdbc-export-hook"

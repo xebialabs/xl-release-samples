@@ -24,7 +24,7 @@ Default values should be fine if you are running elastic search locally. After t
 
 ## Tips and tricks
 
-* Enable frequent archivation to test the script easier. You can do that by setting `xlrelease.ArchivingSettings.archivingJobCronSchedule=* * * * * *` at `conf/deployit-defaults.properties` and selecting '0 Days' at `Settings -> General settings`;
+* Enable frequent archivation to test the script easier. You can do that by setting `xlrelease.ArchivingSettings.archivingJobCronSchedule=*/10 * * * * *` at `conf/deployit-defaults.properties` and selecting '0 Days' at `Settings -> General settings`;
 * You don't need to restart the server if you change main python script;
 * You do need to restart the server if you change `synthetic.xml`
 
