@@ -12,6 +12,7 @@ try:
   title = release.title
   status = release.status.toString()
 
+  # In production code you should use java.sql.PreparedStatement, actually.
   sql = "INSERT INTO releases_report VALUES ('%s', '%s', '%s')" % (releaseId, title, status)
   logger.debug("Executing SQL statement: %s" % sql)
   statement.executeUpdate(sql)
