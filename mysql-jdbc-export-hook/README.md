@@ -21,13 +21,30 @@ There are 2 ways to load this export hook into XL Release:
 2. Create some database which name will be used in JDBC URL;
 3. Download [the latest version of MySQL connector/J](http://dev.mysql.com/downloads/connector/j/) and put into `XLRELEASE_SERVER_HOME/plugins`.
 
-After doing so you can go to `Settings -> Configuration` in XL Release and choose newly appeared option `Acme: Mysql reporting export hook`.
+# Usage
 
-![Add Elastic search export hook](./images/mysql_acme.png)
+In XL Release go to `Settings -> Configuration`, choose newly appeared option `Acme: Mysql reporting export hook` and configure the hook.
+
+![Add JDBC export hook](./images/mysql_acme.png)
+
+Then complete a release and wait for it to be archived (see tips and tricks below on how to make it faster). When the release is archived you can find it in your SQL table:
+
+	mysql> select * from releases_report;
+	+-----------------------------+----------------------------------+---------+
+	| id                          | title                            | status  |
+	+-----------------------------+----------------------------------+---------+
+	| Applications/Release9998674 | Welcome XL Release Administrator | ABORTED |
+	+-----------------------------+----------------------------------+---------+
+	1 row in set (0.00 sec)
+
 
 ## Tips and tricks
 
-* Enable frequent archivation to test the script easier. You can do that by setting `xlrelease.ArchivingSettings.archivingJobCronSchedule=*/10 * * * * *` at `conf/deployit-defaults.properties` and selecting '0 Days' at `Settings -> General settings`;
+* Enable frequent archivation to test the script easier:
+	* open file `conf/deployit-defaults.properties` (generated automatically on first start);
+	* uncomment and set property: `xlrelease.ArchivingSettings.archivingJobCronSchedule=*/10 * * * * *`;
+	* (re)start XL Release;
+	* in *Settings -> General settings* enable archiving with "0 Days".
 * You don't need to restart the server if you change main python script;
 * You do need to restart the server if you change `synthetic.xml`
 * JDBC URL for this example should always start with `jdbc:mysql:`.
