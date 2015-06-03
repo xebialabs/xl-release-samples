@@ -12,7 +12,7 @@ try:
   title = release.title
   status = release.status.toString()
 
-  sql = "INSERT INTO   releases_report VALUES ('%s', '%s', '%s')" % (releaseId, title, status)
+  sql = "INSERT INTO releases_report VALUES ('%s', '%s', '%s')" % (releaseId, title, status)
   logger.debug("Executing SQL statement: %s" % sql)
   statement.executeUpdate(sql)
 finally:
