@@ -20,7 +20,7 @@ After doing so you can go to `Settings -> Configuration` in XL Release and choos
 
 ![Add Elastic search export hook](./images/es_acme.png)
 
-Default values should be fine if you are running elastic search locally. After the release is completed and archived, it should be visible at the results of: `curl 'http://localhost:9200/releases/_search'`
+Default values should be fine if you are running elastic search locally. After the release is completed and archived, it should be visible at the results of: `curl 'http://localhost:9200/releases_index/releases/_search'`
 
 ## Tips and tricks
 
