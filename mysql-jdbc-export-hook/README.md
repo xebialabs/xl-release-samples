@@ -1,5 +1,7 @@
 This sample is intended to show how to develop custom JDBC export hook which takes completed releases, extracts some data and puts it into a 3rd-party database. It has been tested with MySQL 5.6.
 
+There is also a [community sql export hook](https://github.com/xebialabs-community/xlr-sql-export-hook) that exports more  data.
+
 Requirements: XL Release 4.7.0+.
 
 There are 2 ways to load this export hook into XL Release:
